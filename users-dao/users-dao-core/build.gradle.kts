@@ -1,6 +1,5 @@
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization")
     id("tz.co.asoft.library")
     id("io.codearte.nexus-staging")
     signing
@@ -12,12 +11,8 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(kotlinx("datetime", vers.kotlinx.datetime))
-                api(asoft("persist-core", vers.asoft.persist))
-                api(asoft("phone-core", vers.asoft.contacts))
-                api(asoft("email-core", vers.asoft.contacts))
-                api(asoft("permissions-resources", vers.asoft.permission))
-                api(asoft("permissions-modules", vers.asoft.permission))
+                api(project(":users-core"))
+                api(asoft("files", vers.asoft.files))
             }
         }
 
